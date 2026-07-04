@@ -17,19 +17,6 @@
   - Deve ser possível realizar a listagem de forma performática
   - O CSV deve ter campos como: URL original, URL encurtada, contagem de acessos e data de criação.
 
-## Variáveis de ambiente
-
-```yaml
-PORT=
-DATABASE_URL=
-
-CLOUDFLARE_ACCOUNT_ID=""
-CLOUDFLARE_ACCESS_KEY_ID=""
-CLOUDFLARE_SECRET_ACCESS_KEY=""
-CLOUDFLARE_BUCKET=""
-CLOUDFLARE_PUBLIC_URL=""
-```
-
 ## Instalação
 
 ### Pré-requisitos:
@@ -53,6 +40,33 @@ cd brev.ly/server
 
 ```bash
 pnpm install
+```
+
+#### Configurar variáveis de ambiente
+
+**Criar cópias do arquivo .env.example para .env e .env.test**
+
+```bash
+# Sistemas UNIX
+cat .env.example | tee .env .env.test > /dev/null
+```
+
+```powershell
+# Windows
+Get-Content .env.example | Set-Content .env, .env.test
+```
+
+**Preencher as variáveis com as credenciais requeridas nos arquivos**
+
+```yaml
+PORT=
+DATABASE_URL=
+
+CLOUDFLARE_ACCOUNT_ID=""
+CLOUDFLARE_ACCESS_KEY_ID=""
+CLOUDFLARE_SECRET_ACCESS_KEY=""
+CLOUDFLARE_BUCKET=""
+CLOUDFLARE_PUBLIC_URL=""
 ```
 
 #### Iniciar o banco de dados
