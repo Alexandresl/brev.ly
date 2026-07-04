@@ -1,32 +1,84 @@
-# Brev.ly — Server
+# Brev.ly Server
 
-Fastify API with PostgreSQL. See the [root README](../README.md) for full project details.
+![Ilustração Projeto](assets/1770308611109.png)
 
-## 🔐 Environment variables
+## Requisitos funcionais do Back-end
 
-```dotenv
+- Deve ser possível criar um link
+  - Não deve ser possível criar um link com URL encurtada mal formatada
+  - Não deve ser possível criar um link com URL encurtada já existente
+- Deve ser possível deletar um link
+- Deve ser possível obter a URL original por meio de uma URL encurtada
+- Deve ser possível listar todas as URL’s cadastradas
+- Deve ser possível incrementar a quantidade de acessos de um link
+- Deve ser possível exportar os links criados em um CSV
+  - Deve ser possível acessar o CSV por meio de uma CDN (Amazon S3, Cloudflare R2, etc)
+  - Deve ser gerado um nome aleatório e único para o arquivo
+  - Deve ser possível realizar a listagem de forma performática
+  - O CSV deve ter campos como: URL original, URL encurtada, contagem de acessos e data de criação.
+
+## Variáveis de ambiente
+
+```yaml
 PORT=
 DATABASE_URL=
-CLOUDFLARE_ACCOUNT_ID=
-CLOUDFLARE_ACCESS_KEY_ID=
-CLOUDFLARE_SECRET_ACCESS_KEY=
-CLOUDFLARE_BUCKET=
-CLOUDFLARE_PUBLIC_URL=
+
+CLOUDFLARE_ACCOUNT_ID=""
+CLOUDFLARE_ACCESS_KEY_ID=""
+CLOUDFLARE_SECRET_ACCESS_KEY=""
+CLOUDFLARE_BUCKET=""
+CLOUDFLARE_PUBLIC_URL=""
 ```
 
-## 📖 API Documentation
+## Instalação
 
-- `GET /docs` — Scalar UI (interactive)
-- `GET /docs/json` — OpenAPI schema (JSON)
+### Pré-requisitos:
 
-## 📜 Scripts
+- Node.js v24.12 ou superior
+- pnpm
+- Docker
+- Docker Compose
 
-- `npm run dev` — start development server
-- `npm run build` — build for production
-- `npm run start` — run compiled application
-- `npm run db:generate` — generate migrations
-- `npm run db:migrate` — run migrations
-- `npm run db:studio` — open Drizzle Studio
-- `npm run test` — run the test suite
-- `npm run test:db:prepare` — prepare test database
-- `npm run test:run` — run Vitest in run mode
+### Comandos:
+
+#### Clonar projeto e acessar a pasta server
+
+```bash
+git clone git@github.com:Alexandresl/Brev.ly.git
+
+cd brev.ly/server
+```
+
+#### Instalar dependências
+
+```bash
+pnpm install
+```
+
+#### Iniciar o banco de dados
+
+```bash
+docker-compose up -d
+```
+
+#### Migrar banco de dados
+
+```bash
+pnpm db:migrate
+```
+
+#### Iniciar o servidor
+
+```bash
+pnpm run dev
+```
+
+## Endpoints server
+
+[http://localhost:3333/](http://localhost:3333/)
+
+[http://localhost:3333/docs](http://localhost:3333/docs)
+
+----------
+
+[<- Voltar](README.md)
