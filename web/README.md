@@ -47,20 +47,6 @@ pnpm install
 pnpm run dev
 ```
 
-#### Configurar variáveis de ambiente
-
-**Criar cópias do arquivo .env.example para .env e .env.test**
-
-```bash
-# Sistemas UNIX
-cat .env.example | tee .env .env.test > /dev/null
-```
-
-```powershell
-# Windows
-Get-Content .env.example | Set-Content .env, .env.test
-```
-
 ## Endpoints server
 
 [http://localhost:5173/](http://localhost:5173/)
