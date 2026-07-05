@@ -44,7 +44,7 @@ describe('GET /links/:shortUrl (E2E)', () => {
     expect(response.statusCode).toBe(404);
     const body = response.json();
     expect(body).toHaveProperty('message');
-    expect(body.message).toBe('Link not found');
+    expect(body.message).toBe('Link não encontrado');
   });
   
   it('should increment access count in database on each access', async () => {

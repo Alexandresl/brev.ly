@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://brev.ly/sitemap.xml

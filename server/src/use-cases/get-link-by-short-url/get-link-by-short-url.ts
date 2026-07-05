@@ -5,7 +5,7 @@ import { schema } from '@/db/schemas';
 import { eq, sql } from 'drizzle-orm';
 
 export const getLinkByShortUrlInput = z.object({
-  shortUrl: z.string().min(1, { message: 'Short URL is required' }),
+  shortUrl: z.string().min(1, { message: 'A URL encurtada é obrigatória' }),
 });
 
 export type GetLinkByShortUrlInput = z.input<typeof getLinkByShortUrlInput>;
@@ -37,7 +37,7 @@ export async function getLinkByShortUrl(
   if (!link) {
     return makeLeft({
       code: 'LINK_NOT_FOUND',
-      message: 'Link not found',
+      message: 'Link não encontrado',
     });
   }
   

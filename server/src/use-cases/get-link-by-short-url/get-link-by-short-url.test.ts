@@ -51,7 +51,7 @@ describe('getLinkByShortUrl use case', () => {
     expect(isLeft(result)).toBe(true);
     if (isLeft(result)) {
       expect(result.value.code).toBe('LINK_NOT_FOUND');
-      expect(result.value.message).toBe('Link not found');
+      expect(result.value.message).toBe('Link não encontrado');
     }
   });
   

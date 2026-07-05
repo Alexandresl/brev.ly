@@ -5,13 +5,13 @@ import { z } from 'zod';
   import { eq } from 'drizzle-orm';
   
   export const createLinkInput = z.object({
-    originalUrl: z.string().url({ message: 'Invalid original URL' }),
+    originalUrl: z.string().url({ message: 'URL original inválida' }),
     shortUrl: z
       .string()
-      .min(3, { message: 'Shortened URL must be at least 3 characters' })
-      .max(50, { message: 'Shortened URL must be at most 50 characters' })
+      .min(3, { message: 'A URL encurtada deve ter pelo menos 3 caracteres' })
+      .max(50, { message: 'A URL encurtada deve ter no máximo 50 caracteres' })
       .regex(/^[a-zA-Z0-9_-]+$/, {
-        message: 'Malformed shortened URL',
+        message: 'URL encurtada malformada',
       }),
   });
   
@@ -44,7 +44,7 @@ import { z } from 'zod';
     if (existingLink) {
       return makeLeft({
         code: 'SHORT_URL_ALREADY_EXISTS',
-        message: 'Shortened URL already exists',
+        message: 'A URL encurtada já existe',
       });
     }
   
